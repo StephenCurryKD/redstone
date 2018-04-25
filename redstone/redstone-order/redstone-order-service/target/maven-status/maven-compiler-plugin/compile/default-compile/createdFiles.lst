@@ -1,0 +1,4 @@
+com\redstone\jedis\JedisClientCluster.class
+com\redstone\jedis\JedisClientPool.class
+com\redstone\jedis\JedisClient.class
+com\redstone\order\service\impl\OrderServiceImpl.class

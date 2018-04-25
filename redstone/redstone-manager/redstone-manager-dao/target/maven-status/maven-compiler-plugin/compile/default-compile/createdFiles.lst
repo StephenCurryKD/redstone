@@ -1,0 +1,11 @@
+com\redstone\mapper\TbOrderShippingMapper.class
+com\redstone\mapper\TbItemCatMapper.class
+com\redstone\mapper\TbItemMapper.class
+com\redstone\mapper\TbOrderItemMapper.class
+com\redstone\mapper\TbContentCategoryMapper.class
+com\redstone\mapper\TbUserMapper.class
+com\redstone\mapper\TbItemParamItemMapper.class
+com\redstone\mapper\TbItemParamMapper.class
+com\redstone\mapper\TbItemDescMapper.class
+com\redstone\mapper\TbContentMapper.class
+com\redstone\mapper\TbOrderMapper.class

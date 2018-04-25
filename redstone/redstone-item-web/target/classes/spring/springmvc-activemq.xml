@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"  
+xmlns:tx="http://www.springframework.org/schema/tx" xmlns:mvc="http://www.springframework.org/schema/mvc"
+xsi:schemaLocation="http://www.springframework.org/schema/beans  
+    http://www.springframework.org/schema/beans/spring-beans-4.3.xsd    
+    http://www.springframework.org/schema/mvc 
+    http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd  
+    http://www.springframework.org/schema/tx  
+    http://www.springframework.org/schema/tx/spring-tx-4.3.xsd  
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-4.3.xsd  
+    http://www.springframework.org/schema/aop  
+    http://www.springframework.org/schema/aop/spring-aop-4.3.xsd"> 
+    
+ <!-- JMS服务厂商提供的可以真正产生Connection的ConnectionFactory -->
+ <bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+ 		<constructor-arg name="brokerURL" value="tcp://47.100.114.233:61616"/>
+ </bean>
+ 
+ <!-- spring对象ConnectionFactory封装 -->
+ <bean id="connectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
+ 		<property name="targetConnectionFactory" ref="targetConnectionFactory"></property>
+ </bean>
+ 
+ 
+ 
+ <!-- 主题目的地,一对多 -->
+ <bean id="itemAddTopic" class="org.apache.activemq.command.ActiveMQTopic">
+ 	<constructor-arg name="name" value="item-add-topic"/>
+ </bean>
+ 
+ <bean id="itemAddMessageListener" class="com.redstone.item.listener.ItemAddMessageListener"></bean>
+ <!-- 配置监听器 -->
+ <bean class="org.springframework.jms.listener.DefaultMessageListenerContainer"> 
+ 	<property name="connectionFactory" ref="connectionFactory"/>
+ 	<property name="destination" ref="itemAddTopic"/>
+ 	<property name="messageListener" ref="itemAddMessageListener"/>
+ </bean>
+ <!-- 消息监听容器 -->
+ 
+ 
+</beans>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

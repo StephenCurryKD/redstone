@@ -1,0 +1,4 @@
+com\redstone\item\controller\HtmlGenController.class
+com\redstone\item\listener\ItemAddMessageListener.class
+com\redstone\item\controller\ItemController.class
+com\redstone\item\pojo\Item.class
